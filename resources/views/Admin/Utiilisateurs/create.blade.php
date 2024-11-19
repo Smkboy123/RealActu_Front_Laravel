@@ -1,5 +1,5 @@
 @extends('Admin.master')
-@section('title', 'Nouvelle Categorie')
+@section('title', 'Nouvelle Utilisateur')
 @section('content')
 <div class="content-wrapper">
     <!-- Content -->
@@ -9,47 +9,42 @@
             <!-- Basic -->
             <div class="col-md-6">
                 <div class="card mb-6">
-                    <h5 class="card-header">Nouvelle Articles</h5>
+                <h5 class="card-header">Nouveau Utilisateur</h5>
                     <div class="card-body demo-vertical-spacing demo-only-element">
                         <div class="form-password-toggle">
-                            <label class="form-label" for="titre">Titre</label>
+                            <label class="form-label" for="titre">Nom</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="titre"
-                                    placeholder="veuillez entrer le titre de l'article"
+                                    placeholder="veuillez entrer le nom de la catégorie"
                                     aria-describedby="basic-default" />
                             </div>
                         </div>
                         <div class="form-password-toggle">
-                            <label class="form-label" for="intro">Introduction</label>
+                            <label class="form-label" for="email">Email</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="intro"
-                                    placeholder="veuillez entrer une introduction"
-                                    aria-describedby="basic-default" />
-                            </div>
-                        </div>
-
-                        <label class="form-label" for="content">Contenu</label>
-                        <div class="input-group">
-                            <br><textarea class="form-control" id="content" aria-label="With textarea" placeholder="La contenue de l'article" style="height: 120px"></textarea>
-                        </div>
-                        <div class="form-password-toggle">
-                            <label class="form-label" for="conclu">Conclusion</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="conclu"
-                                    placeholder="veuillez entrer une conclusion"
+                                <input type="email" class="form-control" id="email"
+                                    placeholder="exemple@gmail.com"
                                     aria-describedby="basic-default" />
                             </div>
                         </div>
                         <div class="form-password-toggle">
-                            <label class="form-label" for="etti">Etiquettes</label>
+                            <label class="form-label" for="email">Mot de passe</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="etti"
-                                    placeholder="Ex: #Sport, #223..."
+                                <input type="password" class="form-control" id="email"
+                                    placeholder="*********"
+                                    aria-describedby="basic-default" />
+                            </div>
+                        </div>
+                        <div class="form-password-toggle">
+                            <label class="form-label" for="email">Cofirmation de Mot de passe</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="email"
+                                    placeholder="*********"
                                     aria-describedby="basic-default" />
                             </div>
                         </div>
                         <button class="btn btn-outline-primary" type="submit"
-                            id="inputGroupFileAddon04">Enregistrer</button>
+                            id="inputGroupFileAddon04">Ajouter</button>
                     </div>
                 </div>
             </div>

@@ -28,7 +28,7 @@
                             </div>
                         </div>
                         <button class="btn btn-outline-primary" type="submit"
-                            id="inputGroupFileAddon04">Button</button>
+                            id="inputGroupFileAddon04">Enregistrer</button>
                     </div>
                 </div>
             </div>

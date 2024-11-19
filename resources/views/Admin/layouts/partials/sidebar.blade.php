@@ -108,7 +108,7 @@
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ri-layout-left-line"></i>
-                <div data-i18n="Account Settings">Category</div>
+                <div data-i18n="Account Settings">Categories</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
@@ -144,27 +144,27 @@
                         <div data-i18n="Account">Listes des Articles</div>
                     </a>
                 </li>
+                <li class="menu-item">
+                    <a href="{{ route('articles.create') }}" class="menu-link">
+                        <div data-i18n="Account">Nouvelle articles</div>
+                    </a>
+                </li>
             </ul>
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ri-shield-keyhole-line"></i>
-                <div data-i18n="Authentications">Authentications</div>
+                <div data-i18n="Authentications">Utilisateurs</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
                     <a href="auth-login-basic.html" class="menu-link" target="_blank">
-                        <div data-i18n="Basic">Login</div>
+                        <div data-i18n="Basic">Listes des utilisateurs</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="auth-register-basic.html" class="menu-link" target="_blank">
-                        <div data-i18n="Basic">Register</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="auth-forgot-password-basic.html" class="menu-link" target="_blank">
-                        <div data-i18n="Basic">Forgot Password</div>
+                    <a href="{{ route('utilisateurs.index') }}" class="menu-link" target="_blank">
+                        <div data-i18n="Basic">Nouvelles Utilisateurs</div>
                     </a>
                 </li>
             </ul>
