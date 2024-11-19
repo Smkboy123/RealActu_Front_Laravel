@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('introduction');
             $table->string('contenu');
             $table->string('datePublication');
-            $table->string('image');
+            $table->blob('image');
             $table->string('conclusion');
             $table->string('source');
            /**$table->timestamps(); */ 
