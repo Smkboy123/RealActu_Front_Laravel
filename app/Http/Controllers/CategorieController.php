@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categorie;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategorieController extends Controller
@@ -12,7 +13,8 @@ class CategorieController extends Controller
      */
     public function index()
     {
-        return view('admin.categories.index');
+        $categories = Category::latest()->get();
+        return view('admin.categories.index', compact('categories'));
     }
 
     /**
@@ -28,38 +30,51 @@ class CategorieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nom' => 'required|string|min:3',
+            'description' => 'required|string',
+        ]);
+
+        Category::create($request->all());
+        return redirect()->route('categories.index')->with('success', 'Categorie ajoutée avec succès');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Categorie $categorie)
+    public function show(Category $category)
     {
-        //
+        return view('admin.categories.show', compact('category'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Categorie $categorie)
+    public function edit(Category $category)
     {
-        //
+        return view('admin.categories.edit', compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Categorie $categorie)
+    public function update(Request $request, Category $category)
     {
-        //
+        $request->validate([
+            'nom' => 'required|string|min:3',
+            'description' => 'required|string',
+        ]);
+
+        Category::create($request->all());
+        return redirect()->route('categories.index')->with('success', 'Categorie Modifiée avec succès');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Categorie $categorie)
+    public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return back()->with('success', 'Categorie Supprimée avec succès');
     }
 }

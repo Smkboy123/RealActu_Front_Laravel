@@ -17,11 +17,10 @@ return new class extends Migration
             $table->string('introduction');
             $table->string('contenu');
             $table->string('datePublication');
-            $table->blob('image');
+            $table->string('image');
             $table->string('conclusion');
             $table->string('source');
-           /**$table->timestamps(); */ 
-
+            $table->timestamps();
         });
     }
 
