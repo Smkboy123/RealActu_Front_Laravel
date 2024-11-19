@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Article;
+
+use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\facades\Route;
 use App\Http\Controllers\PostContrpller;
+use App\Models\Article as ModelsArticle;
+use App\Models\Category;
 
 class ArticleController extends Controller
 {
@@ -23,7 +26,8 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('admin.articles.create');
+        $categories = Category::all();
+        return view('admin.articles.create', compact('categories'));
     }
 
     /**
@@ -31,7 +35,18 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $request->validate([
+            'titre' => "required|string",
+            'introduction' => "required|string",
+            'contenu' => "required|string",
+            'image' => "required|image",
+            'conclusion' => "required|string",
+            // 'source' => "required|string",
+            'category_id' => "required|numeric",
+        ]);
+        Article::create($request->all());
+        return redirect()->route('articles.index')->with('success', 'Article ajoutée avec succès');
     }
 
     /**
@@ -39,7 +54,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+        return view('admin.articles.show', compact('article'));
     }
 
     /**
@@ -47,7 +62,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+        return view('admin.articles.edit', compact('article'));
     }
 
     /**

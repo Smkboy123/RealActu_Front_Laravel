@@ -22,8 +22,7 @@
             <li class="nav-item lh-1 me-4">
                 <form action="{{ route('logout') }}" method="post">
                     @csrf
-                    <button class="github-button" data-icon="octicon-star" data-size="large" data-show-count="true"
-                        aria-label="Star themeselection/materio-bootstrap-html-admin-template-free on GitHub">Deconnexion</button>
+                    <button class="btn-danger">Déconnexion</button>
                 </form>
             </li>
 
