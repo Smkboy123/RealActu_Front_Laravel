@@ -20,8 +20,7 @@ return new class extends Migration
             $table->string('image');
             $table->string('conclusion');
             $table->string('source');
-           /**$table->timestamps(); */ 
-
+            $table->timestamps();
         });
     }
 
