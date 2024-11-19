@@ -24,26 +24,31 @@
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
-                            @foreach($categories as $category)
-                            <tr>
-                                <td><i class="ri-suitcase-2-line ri-22px text-danger me-4"></i><span>{{ $category->nom}}</span>
-                                </td>
-                                <td>{{ $category->description }}</td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                            data-bs-toggle="dropdown">
-                                            <i class="ri-more-2-line"></i>
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item waves-effect" href="javascript:void(0);"><i
-                                                    class="ri-pencil-line me-1"></i> Editer</a>
-                                            <a class="dropdown-item waves-effect" href="javascript:void(0);"><i
-                                                    class="ri-delete-bin-6-line me-1"></i> Supprimer</a>
+                            @foreach ($categories as $category)
+                                <tr>
+                                    <td><span>{{ $category->nom }}</span>
+                                    </td>
+                                    <td>{{ $category->description }}</td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                                data-bs-toggle="dropdown">
+                                                <i class="ri-more-2-line"></i>
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item waves-effect"
+                                                    href="{{ route('categories.edit', $category) }}"><i
+                                                        class="ri-pencil-line me-1"></i> Editer</a>
+                                                <form action="{{ route('categories.destroy', $category) }}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="dropdown-item waves-effect" href="javascript:void(0);"><i
+                                                            class="ri-delete-bin-6-line me-1"></i> Supprimer</button>
+                                                </form>
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>
@@ -57,7 +62,7 @@
         <!-- / Content -->
 
         <!-- Footer -->
-        
+
         <!-- / Footer -->
 
         <div class="content-backdrop fade"></div>

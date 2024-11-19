@@ -65,7 +65,7 @@ class CategorieController extends Controller
             'description' => 'required|string',
         ]);
 
-        Category::create($request->all());
+        $category->update($request->all());
         return redirect()->route('categories.index')->with('success', 'Categorie Modifiée avec succès');
     }
 
