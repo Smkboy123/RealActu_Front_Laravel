@@ -113,6 +113,11 @@
             <ul class="menu-sub">
                 <li class="menu-item">
                     <a href="{{ route('categories.index') }}" class="menu-link">
+                        <div data-i18n="Account">liste des Categorie</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('categories.create') }}" class="menu-link">
                         <div data-i18n="Account">Nouvelle Categorie</div>
                     </a>
                 </li>

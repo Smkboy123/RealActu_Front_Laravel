@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->date('dateInscription')->default(now());
+            $table->date('dateInscription')->default(DB::raw('CURRENT_DATE'))->change();
             
            
         });
