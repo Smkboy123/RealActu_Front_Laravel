@@ -7,7 +7,6 @@ use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\facades\Route;
 use App\Http\Controllers\PostContrpller;
-use App\Models\Article as ModelsArticle;
 use App\Models\Category;
 
 class ArticleController extends Controller
@@ -18,8 +17,8 @@ class ArticleController extends Controller
     
     public function index()
     {
-        $articles = Article::with(['category', 'author', 'commentaires'])->latest()->paginate(10);
-        return view('home', compact('articles'));
+        $articles = Article::latest()->get();
+        return view('Admin.articles.index', compact('articles'));
     }
 
     /**
@@ -43,9 +42,9 @@ class ArticleController extends Controller
             'contenu' => "required|string",
             'image' => "required|image",
             'conclusion' => "required|string",
-            // 'source' => "required|string",
+            // 'source' => "",
             'etiquette'=> "string",
-            // 'category_id' => "required|numeric",
+            'category_id' => "required|numeric",
         ]);
         if($request->hasFile('image')){
             $image = $request->file('image')->store('articles');
@@ -90,11 +89,12 @@ class ArticleController extends Controller
             'contenu' => "required|string",
             'image' => "required|image",
             'conclusion' => "required|string",
-            'source' => "string|nullable",
-            'auteur' => "string|nullable",
+            // 'source' => "string",
             'etiquette'=> "string",
             'category_id' => "required|numeric",
         ]);
+        // dd($request->all());
+        // $article->
         $article->update($request->all());
         return redirect()->route('articles.index')->with('success', 'Article Modifiée avec succès');
     }

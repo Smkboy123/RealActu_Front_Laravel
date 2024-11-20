@@ -21,10 +21,10 @@
                                         placeholder="veuillez entrer le titre de l'article"
                                         aria-describedby="basic-default" name="titre" />
                                 </div>
+                                @error('titre')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
-                            @error('titre')
-                            <span class="invalid-feedback">{{ $message }}</span>
-                            @enderror
                             <div class="form-password-toggle">
                                 <label class="form-label" for="image">Images mis en avant</label>
                                 <div class="input-group">
@@ -38,14 +38,14 @@
                                         placeholder="veuillez entrer une introduction"
                                         aria-describedby="basic-default" name="introduction" />
                                 </div>
+                                @error('introduction')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
-                            @error('introduction')
-                            <span class="invalid-feedback">{{ $message }}</span>
-                            @enderror
 
-                            <label class="form-label @error('contenu') is -invalid @enderror" for="contenu">Contenu</label>
+                            <label class="form-label" for="contenu">Contenu</label>
                             <div class="input-group">
-                                <br><textarea class="form-control" name="contenu" id="contenu" aria-label="With textarea"
+                                <br><textarea class="form-control @error('contenu') is -invalid @enderror" name="contenu" id="contenu" aria-label="With textarea"
                                     placeholder="La contenue de l'article" style="height: 120px">{{ old('contenu') ??  $article->contenu}}</textarea>
 
                             </div>
@@ -59,16 +59,16 @@
                                         placeholder="veuillez entrer une conclusion"
                                         aria-describedby="basic-default" name="conclusion" />
                                     @error('conclusion')
-                                    <span class="invalid-feedback">{{ $message }}</span>
+                                    <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                             </div>
 
                             <!-- Une liste deroulante des categories -->
                             <div class="form-password-toggle">
-                                <label class="form-label @error('category_id') is -invalid @enderror" for="etiquette">Categorie</label>
+                                <label class="form-label" for="etiquette">Categorie</label>
                                 <div class="input-group">
-                                    <select type="text" class="form-select" id="category_id"
+                                    <select type="text" class="form-select @error('category_id') is -invalid @enderror" id="category_id"
                                         aria-describedby="basic-default" name="category_id">
                                         @foreach ($categories as $category)
                                         <option value="{{ $category->id }}">{{ $category->nom }}</option>
@@ -76,18 +76,18 @@
                                     </select>
                                 </div>
                                 @error('category_id')
-                                <span class="invalid-feedback">{{ $message }}</span>
+                                <span class="text-danger">{{ $message }}</span>
                                 @enderror
 
 
                                 <div class="form-password-toggle">
-                                    <label class="form-label @error('etiquette') is -invalid @enderror" for="etiquette">Etiquettes</label>
+                                    <label class="form-label" for="etiquette">Etiquettes</label>
                                     <div class="input-group">
-                                        <input type="text" value="{{ old('etiquette') ?? $article->etiquette}}" class="form-control" id="etiquette"
+                                        <input type="text" value="{{ old('etiquette') ?? $article->etiquette}}" class="form-control @error('etiquette') is -invalid @enderror" id="etiquette"
                                             placeholder="Ex: #Sport, #223..."
                                             aria-describedby="basic-default" name="etiquette" />
                                         @error('etiquette')
-                                        <span class="invalid-feedback">{{ $message }}</span>
+                                        <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                 </div>
@@ -99,7 +99,7 @@
                                         aria-describedby="basic-default" name="source" />
                                 </div>
                                 @error('source')
-                                <span class="invalid-feedback">{{ $message }}</span>
+                                <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <br>

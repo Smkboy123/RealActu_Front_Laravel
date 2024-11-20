@@ -4,11 +4,8 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
-<<<<<<< HEAD
+use App\Http\Controllers\UserController;
 use App\Models\Category;
-=======
-use App\Http\Controllers\UtilisateurController;
->>>>>>> 91a8c3b2251b056b72ccc4691e21ac6de8ddde50
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -30,12 +27,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('categories', CategorieController::class);
     Route::resource('articles', ArticleController::class);
-<<<<<<< HEAD
+    Route::resource('users', UserController::class);
     // Route::get('/', [ArticleController::class, 'index'])->name('home');
 
-=======
-    
->>>>>>> 91a8c3b2251b056b72ccc4691e21ac6de8ddde50
 });
 
 require __DIR__ . '/auth.php';

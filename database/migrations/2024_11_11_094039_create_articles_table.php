@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('etiquette')->default('');
             $table->string('auteur')->default('RealActu');
             $table->foreignId('category_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string('source')->default('RealActu');
+            $table->string('source')->nullable()->default('RealActu');
             $table->timestamps();
         });
     }

@@ -21,7 +21,7 @@
                                         aria-describedby="basic-default" name="titre" />
                                 </div>
                                 @error('titre')
-                                <span class="invalid-feedback">{{ $message }}</span>
+                                <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="form-password-toggle">
@@ -30,7 +30,7 @@
                                     <input type="file" name="image" id="image" class="form-control">
                                 </div>
                                 @error('image')
-                                <span class="invalid-feedback">{{ $message }}</span>
+                                <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="form-password-toggle">
@@ -41,7 +41,7 @@
                                         aria-describedby="basic-default" name="introduction" />
                                 </div>
                                 @error('introduction')
-                                <span class="invalid-feedback">{{ $message }}</span>
+                                <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
 
@@ -51,7 +51,7 @@
 
                             </div>
                             @error('contenu')
-                            <span class="invalid-feedback">{{ $message }}</span>
+                            <span class="text-danger">{{ $message }}</span>
                             @enderror
                             <div class="form-password-toggle">
                                 <label class="form-label" for="conclusion">Conclusion</label>
@@ -61,7 +61,7 @@
                                         aria-describedby="basic-default" name="conclusion" />
                                 </div>
                                 @error('conclusion')
-                                <span class="invalid-feedback">{{ $message }}</span>
+                                <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             
@@ -79,7 +79,7 @@
                                     </select>
                                 </div>
                                 @error('category_id')
-                                <span class="invalid-feedback">{{ $message }}</span>
+                                <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="form-password-toggle">
@@ -90,18 +90,18 @@
                                         aria-describedby="basic-default" name="etiquette" />
                                 </div>
                                 @error('etiquette')
-                                <span class="invalid-feedback">{{ $message }}</span>
+                                <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="form-password-toggle">
                                 <label class="form-label" for="source">Source(facultative)</label>
                                 <div class="input-group">
-                                    <input type="text" value="{{ old('source') ?? ''}}" class="form-control @error('source') is -invalid @enderror " id="titre"
+                                    <input type="text" value="{{ old('source') ?? ''}}" class="form-control @error('source') is -invalid @enderror " id="source"
                                         placeholder="veuillez entrer la source de l'article"
                                         aria-describedby="basic-default" name="source" />
                                 </div>
                                 @error('source')
-                                <span class="invalid-feedback">{{ $message }}</span>
+                                <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <br>
