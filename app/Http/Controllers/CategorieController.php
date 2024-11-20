@@ -13,8 +13,8 @@ class CategorieController extends Controller
      */
     public function index()
     {
-        $categories = Category::latest()->get();
-        return view('admin.categories.index', compact('categories'));
+        $categories = Category::with('articles')->get();
+        return view('categories.index', compact('categories'));
     }
 
     /**
@@ -32,7 +32,7 @@ class CategorieController extends Controller
     {
         $request->validate([
             'nom' => 'required|string|min:3',
-            'description' => 'required|string',
+            'description' => 'nullable|string',
         ]);
 
         Category::create($request->all());
@@ -55,6 +55,11 @@ class CategorieController extends Controller
         return view('admin.categories.edit', compact('category'));
     }
 
+    public function details(Category $category)
+    {
+        return view('frontend.categorie.show', compact('category'));
+    }
+
     /**
      * Update the specified resource in storage.
      */
@@ -62,7 +67,7 @@ class CategorieController extends Controller
     {
         $request->validate([
             'nom' => 'required|string|min:3',
-            'description' => 'required|string',
+            'description' => 'nullable|string',
         ]);
 
         $category->update($request->all());

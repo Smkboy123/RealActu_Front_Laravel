@@ -2,20 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Article;
+
+use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\facades\Route;
 use App\Http\Controllers\PostContrpller;
+use App\Models\Article as ModelsArticle;
+use App\Models\Category;
 
 class ArticleController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+    
     public function index()
     {
-        $articles = Article::latest()->get();
-        return view('admin.articles.index', compact('articles'));
+        $articles = Article::with(['category', 'author', 'commentaires'])->latest()->paginate(10);
+        return view('home', compact('articles'));
     }
 
     /**
@@ -23,7 +27,8 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('admin.articles.create');
+        $categories = Category::all();
+        return view('admin.articles.create', compact('categories'));
     }
 
     /**
@@ -31,18 +36,18 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $request->validate([
-            'title' => 'required|string|min:3',
-            'introduction' => 'required|string',
-            'contenu' => 'required|string|min:3',
-            'datePublication' => 'required|date:before',
-            'image' => 'required|string',
-            'conclusion' => 'required|string',
-            'source' => 'required|string',
+            'titre' => "required|string",
+            'introduction' => "required|string",
+            'contenu' => "required|string",
+            'image' => "required|image",
+            'conclusion' => "required|string",
+            // 'source' => "required|string",
+            'category_id' => "required|numeric",
         ]);
-
         Article::create($request->all());
-        return redirect()->route('categories.index')->with('success', 'Article ajouté avec succès');
+        return redirect()->route('articles.index')->with('success', 'Article ajoutée avec succès');
     }
 
     /**
@@ -50,7 +55,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+        return view('admin.articles.show', compact('article'));
     }
 
     /**
@@ -58,7 +63,11 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+        return view('admin.articles.edit', compact('article'));
+    }
+    public function details(Article $article)
+    {
+       return view("frontend.Article.show", compact("article"));
     }
 
     /**

@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     protected $fillable = [
-        'title',
+        'titre',
         'introduction',
         'contenu',
-        'datePublication',
+        'etiquette',
         'image',
         'conclusion',
-        'source',
+        'category_id',
     ];
 
     public function commentaires(){
