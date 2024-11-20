@@ -7,7 +7,7 @@
                     <div class="col-xl-12">
                         <div class="row d-flex justify-content-between align-items-center">
                             <div class="header-info-left">
-                                <ul>     
+                                <ul>
                                     <li class="title"><span class="flaticon-energy"></span> trending-title</li>
                                     <li>Class property employ ancho red multi level mansion</li>
                                 </ul>
@@ -44,32 +44,32 @@
                         <div class="col-xl-8 col-lg-8 col-md-12 header-flex">
                             <!-- sticky -->
                             <div class="sticky-logo">
-                                <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                                <a href="index.html"><img src="assets/img/logo/logo.png" alt="logo" width="100" height="50"></a>
                             </div>
                             <!-- Main-menu -->
                             <div class="main-menu d-none d-md-block">
-                                <nav>                  
+                                <nav>
                                     <ul id="navigation">
-                                        <li><a href="index.html">Home</a></li>
-                                        <li><a href="about.html">about</a></li>
-                                        <li><a href="categori.html">Category</a></li>
-                                        <li><a href="latest_news.html">Latest News</a></li>
-                                        <li><a href="#">Pages</a>
-                                            <ul class="submenu">
+                                        <li><a href="index.html">Accueil</a></li>
+                                        <li><a href="about.html">Politique</a></li>
+                                        <li><a href="{{route('categorie.details')}}">Environnrment</a></li>
+                                        <li><a href="{{route('articles.details')}}">Sport</a></li>
+                                        <li><a href="#">Technologie</a>
+                                            <!-- <ul class="submenu">
                                                 <li><a href="blog.html">Blog</a></li>
                                                 <li><a href="blog_details.html">Blog Details</a></li>
                                                 <li><a href="elements.html">Element</a></li>
-                                            </ul>
+                                            </ul> -->
                                         </li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="contact.html">Economie</a></li>
                                     </ul>
                                 </nav>
                             </div>
-                        </div>             
+                        </div>
                         <div class="col-xl-4 col-lg-4 col-md-4">
                             <div class="header-right f-right d-none d-lg-block">
                                 <!-- Heder social -->
-                                <ul class="header-social">    
+                                <ul class="header-social">
                                     <li><a href="https://www.fb.com/sai4ull"><i class="fab fa-facebook-f"></i></a></li>
                                     <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                                     <li><a href="#"><i class="fab fa-instagram"></i></a></li>

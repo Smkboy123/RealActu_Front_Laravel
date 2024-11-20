@@ -118,7 +118,11 @@
                     </a>
                 </li>
                 <li class="menu-item">
+<<<<<<< HEAD
+                    <a href="{{-- route('utilisateurs.index') --}}" class="menu-link" target="_blank">
+=======
                     <a href="#" class="menu-link" target="_blank">
+>>>>>>> 91a8c3b2251b056b72ccc4691e21ac6de8ddde50
                         <div data-i18n="Basic">Nouvelles Utilisateurs</div>
                     </a>
                 </li>

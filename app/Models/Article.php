@@ -18,6 +18,11 @@ class Article extends Model
         'category_id',
     ];
 
+    public function commentaires(){
+        return $this->hasMany(Commentaire::class);
+    }
+
+
     public function category(){
         return $this->belongsTo(Category::class);
     }

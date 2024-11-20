@@ -13,8 +13,8 @@ class CategorieController extends Controller
      */
     public function index()
     {
-        $categories = Category::latest()->get();
-        return view('admin.categories.index', compact('categories'));
+        $categories = Category::with('articles')->get();
+        return view('categories.index', compact('categories'));
     }
 
     /**
@@ -53,6 +53,11 @@ class CategorieController extends Controller
     public function edit(Category $category)
     {
         return view('admin.categories.edit', compact('category'));
+    }
+
+    public function details(Category $category)
+    {
+        return view('frontend.categorie.show', compact('category'));
     }
 
     /**

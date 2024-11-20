@@ -15,10 +15,11 @@ class ArticleController extends Controller
     /**
      * Display a listing of the resource.
      */
+    
     public function index()
     {
-        $articles = Article::latest()->get();
-        return view('admin.articles.index', compact('articles'));
+        $articles = Article::with(['category', 'author', 'commentaires'])->latest()->paginate(10);
+        return view('home', compact('articles'));
     }
 
     /**
@@ -71,6 +72,10 @@ class ArticleController extends Controller
     {
         $categories = Category::all();
         return view('admin.articles.edit', compact('article','categories'));
+    }
+    public function details(Article $article)
+    {
+       return view("frontend.Article.show", compact("article"));
     }
 
     /**
