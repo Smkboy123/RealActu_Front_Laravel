@@ -15,11 +15,12 @@ return new class extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->string('titre');
-            $table->string('introduction');
-            $table->string('contenu');
+            $table->longText('introduction');
+            $table->longText('contenu');
             $table->string('image');
-            $table->string('conclusion');
-            $table->string('etiquette');
+            $table->longText('conclusion');
+            $table->string('etiquette')->default('');
+            $table->string('auteur')->default('RealActu');
             $table->foreignId('category_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('source')->default('RealActu');
             $table->timestamps();

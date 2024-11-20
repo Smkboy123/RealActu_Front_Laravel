@@ -43,10 +43,17 @@ class ArticleController extends Controller
             'image' => "required|image",
             'conclusion' => "required|string",
             // 'source' => "required|string",
-            'category_id' => "required|numeric",
+            'etiquette'=> "string",
+            // 'category_id' => "required|numeric",
         ]);
-        Article::create($request->all());
-        return redirect()->route('articles.index')->with('success', 'Article ajoutée avec succès');
+        if($request->hasFile('image')){
+            $image = $request->file('image')->store('articles');
+            $article = new Article($request->all());
+            $article->image = $image;
+            $article->save();
+            return redirect()->route('articles.index')->with('success', 'Article ajoutée avec succès');
+        }
+        return back()->with('error', 'erreur contenu');
     }
 
     /**
@@ -62,7 +69,8 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        return view('admin.articles.edit', compact('article'));
+        $categories = Category::all();
+        return view('admin.articles.edit', compact('article','categories'));
     }
 
     /**
@@ -70,7 +78,20 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        //
+         // dd($request->all());
+         $request->validate([
+            'titre' => "required|string",
+            'introduction' => "required|string",
+            'contenu' => "required|string",
+            'image' => "required|image",
+            'conclusion' => "required|string",
+            'source' => "string|nullable",
+            'auteur' => "string|nullable",
+            'etiquette'=> "string",
+            'category_id' => "required|numeric",
+        ]);
+        $article->update($request->all());
+        return redirect()->route('articles.index')->with('success', 'Article Modifiée avec succès');
     }
 
     /**

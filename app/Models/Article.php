@@ -12,7 +12,13 @@ class Article extends Model
         'contenu',
         'etiquette',
         'image',
+        'source',
+        'auteur',
         'conclusion',
         'category_id',
     ];
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 }

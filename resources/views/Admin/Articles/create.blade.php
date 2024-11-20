@@ -64,6 +64,7 @@
                                 <span class="invalid-feedback">{{ $message }}</span>
                                 @enderror
                             </div>
+                            
 
                             <!-- Une liste deroulante des categories -->
 
@@ -92,13 +93,24 @@
                                 <span class="invalid-feedback">{{ $message }}</span>
                                 @enderror
                             </div>
+                            <div class="form-password-toggle">
+                                <label class="form-label" for="source">Source(facultative)</label>
+                                <div class="input-group">
+                                    <input type="text" value="{{ old('source') ?? ''}}" class="form-control @error('source') is -invalid @enderror " id="titre"
+                                        placeholder="veuillez entrer la source de l'article"
+                                        aria-describedby="basic-default" name="source" />
+                                </div>
+                                @error('source')
+                                <span class="invalid-feedback">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <br>
                             <button class="btn btn-outline-primary" type="submit"
                                 id="inputGroupFileAddon04">Enregistrer</button>
                         </div>
                     </form>
                 </div>
             </div>
-
 
         </div>
 
