@@ -23,7 +23,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.articles.create');
     }
 
     /**
@@ -31,7 +31,18 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|string|min:3',
+            'introduction' => 'required|string',
+            'contenu' => 'required|string|min:3',
+            'datePublication' => 'required|date:before',
+            'image' => 'required|string',
+            'conclusion' => 'required|string',
+            'source' => 'required|string',
+        ]);
+
+        Article::create($request->all());
+        return redirect()->route('categories.index')->with('success', 'Article ajouté avec succès');
     }
 
     /**

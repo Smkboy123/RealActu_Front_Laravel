@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    protected $fillables = [
+    protected $fillable = [
         'title',
         'introduction',
         'contenu',
@@ -15,4 +15,9 @@ class Article extends Model
         'conclusion',
         'source',
     ];
+
+    public function commentaires(){
+        return $this->hasMany(Commentaire::class);
+    }
+
 }

@@ -10,5 +10,4 @@ class Category extends Model
         'nom','description',
     ];
 
-
 }
