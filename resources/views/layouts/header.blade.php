@@ -52,8 +52,8 @@
                                     <ul id="navigation">
                                         <li><a href="index.html">Home</a></li>
                                         <li><a href="about.html">about</a></li>
-                                        <li><a href="categori.html">Category</a></li>
-                                        <li><a href="latest_news.html">Latest News</a></li>
+                                        <li><a href="{{route('categorie.details')}}">Category</a></li>
+                                        <li><a href="{{route('articles.details')}}">Latest News</a></li>
                                         <li><a href="#">Pages</a>
                                             <ul class="submenu">
                                                 <li><a href="blog.html">Blog</a></li>

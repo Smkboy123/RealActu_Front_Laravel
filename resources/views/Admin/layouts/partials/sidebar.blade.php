@@ -163,7 +163,7 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{ route('utilisateurs.index') }}" class="menu-link" target="_blank">
+                    <a href="{{-- route('utilisateurs.index') --}}" class="menu-link" target="_blank">
                         <div data-i18n="Basic">Nouvelles Utilisateurs</div>
                     </a>
                 </li>

@@ -53,6 +53,10 @@ class ArticleController extends Controller
     {
         //
     }
+    public function details(Article $article)
+    {
+       return view("frontend.Article.show", compact("article"));
+    }
 
     /**
      * Update the specified resource in storage.

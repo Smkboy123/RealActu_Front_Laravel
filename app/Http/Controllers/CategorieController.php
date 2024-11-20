@@ -55,6 +55,11 @@ class CategorieController extends Controller
         return view('admin.categories.edit', compact('category'));
     }
 
+    public function details(Category $category)
+    {
+        return view('frontend.categorie.show', compact('category'));
+    }
+
     /**
      * Update the specified resource in storage.
      */
