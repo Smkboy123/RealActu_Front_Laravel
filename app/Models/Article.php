@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    protected $fillables = [
-        'title',
+    protected $fillable = [
+        'titre',
         'introduction',
         'contenu',
-        'datePublication',
+        'etiquette',
         'image',
         'conclusion',
-        'source',
+        'category_id',
     ];
 }

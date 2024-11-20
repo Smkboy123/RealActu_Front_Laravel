@@ -15,8 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('nomComplet');
             $table->string('message');
-            $table->string('articleId');
-            $table->string('utilisateurId');
            /**$table->timestamps(); */ 
         });
     }
