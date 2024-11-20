@@ -113,12 +113,12 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="#" class="menu-link" target="_blank">
+                    <a href="{{ route('users.index') }}" class="menu-link" target="_blank">
                         <div data-i18n="Basic">Listes des utilisateurs</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{ route('users.index') }}" class="menu-link" target="_blank">
+                    <a href="{{ route('users.create') }}" class="menu-link" target="_blank">
                         <div data-i18n="Basic">Nouvelles Utilisateurs</div>
                     </a>
                 </li>

@@ -1,70 +1,53 @@
 @extends('Admin.master')
-@section('title', 'Nouvelle Categorie')
+@section('title', 'Liste des utilisateurs')
 @section('content')
     <div class="content-wrapper">
         <!-- Content -->
-
         <div class="container-xxl flex-grow-1 container-p-y">
-            <div class="card-body my-4 d-flex flex-row-reverse">
-                <div class="demo-inline-spacing">
-                    <a href="{{ route('categories.create') }}" class="btn btn-primary">Nouvelle Catégorie</a>
+            <div class="row">
+                <!-- Data Tables -->
+                <div class="col-12">
+                    <div class="card overflow-hidden">
+                        <div class="table-responsive">
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th class="text-truncate">Photo</th>
+                                        <th class="text-truncate">Nom</th>
+                                        <th class="text-truncate">Email</th>
+                                        <th class="text-truncate">Date d'inscription</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse($users as $user)
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar avatar-sm me-4">
+                                                        <!-- Affiche l'image de profil si elle existe, sinon une image par défaut -->
+                                                        <img src="{{ asset($user->profil ? 'storage/' . $user->profil : 'assets/img/avatars/default.png') }}" 
+                                                            alt="profil"
+                                                            class="rounded-circle"
+                                                            style="width: 40px; height: 40px; object-fit: cover;">
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-truncate">{{ $user->name }}</td>
+                                            <td class="text-truncate">{{ $user->email }}</td>
+                                            <td class="text-truncate">{{ $user->created_at->format('d/m/Y') }}</td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="4" class="text-center text-muted">Aucun utilisateur trouvé.</td>
+                                        </tr>
+                                    @endforelse
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
+                <!--/ Data Tables -->
             </div>
-            <!-- Basic Bootstrap Table -->
-            <div class="card">
-                <h5 class="card-header">Liste des categories</h5>
-
-                <div class="table-responsive text-nowrap">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Nom</th>
-                                <th>Description</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody class="table-border-bottom-0">
-                            @foreach ($categories as $category)
-                                <tr>
-                                    <td><span>{{ $category->nom }}</span>
-                                    </td>
-                                    <td>{{ $category->description }}</td>
-                                    <td>
-                                        <div class="dropdown">
-                                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                                data-bs-toggle="dropdown">
-                                                <i class="ri-more-2-line"></i>
-                                            </button>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item waves-effect"
-                                                    href="{{ route('categories.edit', $category) }}"><i
-                                                        class="ri-pencil-line me-1"></i> Editer</a>
-                                                <form action="{{ route('categories.destroy', $category) }}" method="post">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button class="dropdown-item waves-effect" href="javascript:void(0);"><i
-                                                            class="ri-delete-bin-6-line me-1"></i> Supprimer</button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <!--/ Basic Bootstrap Table -->
-
-            <hr class="my-12">
-
         </div>
-        <!-- / Content -->
-
-        <!-- Footer -->
-
-        <!-- / Footer -->
-
-        <div class="content-backdrop fade"></div>
     </div>
 @endsection
