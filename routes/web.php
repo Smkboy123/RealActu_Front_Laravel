@@ -25,6 +25,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('categories', CategorieController::class);
     Route::resource('articles', ArticleController::class);
+    //Route::get('/articles/{article}', [ArticleController::class, 'details'])->name('articles.details');
     Route::resource('users', UserController::class);
     // Route::get('/', [ArticleController::class, 'index'])->name('home');
 
