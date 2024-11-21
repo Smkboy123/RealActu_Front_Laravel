@@ -94,7 +94,7 @@
                                 @enderror
                             </div>
                             <div class="form-password-toggle">
-                                <label class="form-label" for="source">Source(facultative)</label>
+                                <label class="form-label" for="source">Source</label>
                                 <div class="input-group">
                                     <input type="text" value="{{ old('source') ?? ''}}" class="form-control @error('source') is -invalid @enderror " id="source"
                                         placeholder="veuillez entrer la source de l'article"
@@ -118,6 +118,12 @@
 </div>
 
 
-<div class="content-backdrop fade"></div>
+<div class="container">
+@if (session('success'))
+<div class=".alert alert-success">
+    {{session('success')}}
+</div>
+@endif
+</div>
 </div>
 @endsection

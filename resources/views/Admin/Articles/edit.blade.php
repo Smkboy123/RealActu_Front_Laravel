@@ -92,7 +92,7 @@
                                     </div>
                                 </div>
                                 <div class="form-password-toggle">
-                                <label class="form-label" for="source">Source(facultative)</label>
+                                <label class="form-label" for="source">Source</label>
                                 <div class="input-group">
                                     <input type="text" value="{{ old('source') ?? $article->source}}" class="form-control @error('source') is -invalid @enderror " id="titre"
                                         placeholder="veuillez entrer la source de l'article"

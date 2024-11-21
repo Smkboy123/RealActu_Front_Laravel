@@ -6,6 +6,13 @@
 
         <div class="container-xxl flex-grow-1 container-p-y">
             <div class="row">
+            <div class="container">
+@if (session('success'))
+<div class=".alert alert-success">
+    {{session('success')}}
+</div>
+@endif
+</div>
                 <!-- Basic -->
                 <div class="col-md-12">
                     <div class="card mb-6">
@@ -50,6 +57,12 @@
     </div>
 
 
-    <div class="content-backdrop fade"></div>
+    <div class="container">
+@if (session('success'))
+<div class=".alert alert-success">
+    {{session('success')}}
+</div>
+@endif
+</div>
     </div>
 @endsection

@@ -12,7 +12,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        // Récupérer les utilisateurs triés par date de création (la plus récente en premier)
+        $users = User::orderBy('created_at', 'desc')->get();
+    
+        // Retourner la vue avec les utilisateurs
         return view('Admin.users.index', compact('users'));
     }
 
@@ -21,7 +24,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+    
+        return view('admin.users.create');
     }
 
     /**
@@ -29,7 +33,28 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validation
+        $request->validate([
+            'name' => 'string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required',
+            'profil' => 'nullable|image',
+        ]);
+    
+        // Gestion du fichier
+        $profil = $request->hasFile('profil') 
+            ? $request->file('profil')->store('users') 
+            : null;
+    
+        // Création de l'utilisateur
+        User::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => bcrypt($request->input('password')),
+            'profil' => $profil,
+        ]);
+    
+        return redirect()->route('users.index')->with('success', 'Utilisateur ajouté avec succès.');
     }
 
     /**
