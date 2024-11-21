@@ -32,6 +32,7 @@
                     <div class="col-lg-4">
                         <!-- Trending Top -->
                         <div class="row">
+                            @foreach($random_categories->articles as $artcle)
                             <div class="col-lg-12 col-md-6 col-sm-6">
                                 <div class="trending-top mb-30">
                                     <div class="trend-top-img">
