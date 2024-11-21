@@ -21,7 +21,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->date('dateInscription')->default(DB::raw('CURRENT_DATE'))->change();
-            $table->string('profil');
+            $table->string('profil')->nullable();
             
            
         });

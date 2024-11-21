@@ -8,7 +8,7 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Register Basic - Pages | Materio - Bootstrap Material Design Admin Template</title>
+    <title>Créer Compte</title>
 
     <meta name="description" content="" />
 
@@ -61,7 +61,7 @@
                         <a href="index.html" class="app-brand-link gap-3">
                             <span class="app-brand-logo demo">
                                 <span style="color: var(--bs-primary)">
-                                    <svg width="30" height="24" viewBox="0 0 250 196" fill="none"
+                                    <!-- <svg width="30" height="24" viewBox="0 0 250 196" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
                                             d="M12.3002 1.25469L56.655 28.6432C59.0349 30.1128 60.4839 32.711 60.4839 35.5089V160.63C60.4839 163.468 58.9941 166.097 56.5603 167.553L12.2055 194.107C8.3836 196.395 3.43136 195.15 1.14435 191.327C0.395485 190.075 0 188.643 0 187.184V8.12039C0 3.66447 3.61061 0.0522461 8.06452 0.0522461C9.56056 0.0522461 11.0271 0.468577 12.3002 1.25469Z"
@@ -89,23 +89,23 @@
                                         <path fill-rule="evenodd" clip-rule="evenodd"
                                             d="M237.721 1.18923L125 70.3075V136.87L250 65.2465V8.06814C250 3.61223 246.389 0 241.935 0C240.448 0 238.99 0.411583 237.721 1.18923Z"
                                             fill="white" fill-opacity="0.3" />
-                                    </svg>
+                                    </svg> -->
                                 </span>
                             </span>
-                            <span class="app-brand-text demo text-heading fw-semibold">Materio</span>
+                            <span class="app-brand-text demo fw-semibold">Création de compte</span>
                         </a>
                     </div>
                     <!-- /Logo -->
                     <div class="card-body mt-1">
-                        <h4 class="mb-1">Adventure starts here 🚀</h4>
-                        <p class="mb-5">Make your app management easy and fun!</p>
+                        <h4 class="mb-1">Bienvenu chez RealActu 🚀</h4>
+                        <p class="mb-5">Créer votre compte pour bien gérer votre plateforme</p>
 
                         <form id="formAuthentication" class="mb-5" action="{{ route('register') }}" method="POST">
                             @csrf
                             <div class="form-floating form-floating-outline mb-5">
                                 <input type="text" class="form-control @error('name') is-invalid @enderror"
                                     id="username" name="name" placeholder="Enter your username" autofocus />
-                                <label for="username">Username</label>
+                                <label for="username">nom d'utlisateur</label>
                                 @error('name')
                                     <span class="invalid-feedback">{{ $message }}</span>
                                 @enderror
@@ -126,7 +126,7 @@
                                             name="password"
                                             placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                                             aria-describedby="password" />
-                                        <label for="password">Password</label>
+                                        <label for="password">Mot de passe</label>
                                         @error('password')
                                             <span class="invalid-feedback">{{ $message }}</span>
                                         @enderror
@@ -144,7 +144,7 @@
                                             name="password_confirmation"
                                             placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                                             aria-describedby="password" />
-                                        <label for="password">Comfirm Password</label>
+                                        <label for="password">Comfirmation de mot de passe </label>
                                         @error('password_confirmation')
                                             <span class="invalid-feedback">{{ $message }}</span>
                                         @enderror
@@ -159,23 +159,23 @@
                                     <input class="form-check-input" type="checkbox" id="terms-conditions"
                                         name="terms" />
                                     <label class="form-check-label" for="terms-conditions">
-                                        I agree to
-                                        <a href="javascript:void(0);">privacy policy & terms</a>
+                                        j'accepte
+                                        <a href="javascript:void(0);">politique de confidentialité</a>
                                     </label>
                                 </div>
                             </div>
-                            <button class="btn btn-primary d-grid w-100 mb-5">Sign up</button>
+                            <button class="btn btn-primary d-grid w-100 mb-5">Créer le compte</button>
                         </form>
 
                         <p class="text-center mb-5">
-                            <span>Already have an account?</span>
+                            <span>J'ai déja un compte?</span>
                             <a href="auth-login-basic.html">
-                                <span>Sign in instead</span>
+                                <span>Se connecter</span>
                             </a>
                         </p>
                     </div>
                 </div>
-                <!-- Register Card -->
+                <!-- Register Card
                 <img src="../assets/img/illustrations/tree-3.png" alt="auth-tree"
                     class="authentication-image-object-left d-none d-lg-block" />
                 <img src="../assets/img/illustrations/auth-basic-mask-light.png"
@@ -183,17 +183,17 @@
                     data-app-light-img="illustrations/auth-basic-mask-light.png"
                     data-app-dark-img="illustrations/auth-basic-mask-dark.png" />
                 <img src="../assets/img/illustrations/tree.png" alt="auth-tree"
-                    class="authentication-image-object-right d-none d-lg-block" />
+                    class="authentication-image-object-right d-none d-lg-block" /> -->
             </div>
         </div>
     </div>
 
     <!-- / Content -->
 
-    <div class="buy-now">
+    <!-- <div class="buy-now">
         <a href="https://themeselection.com/item/materio-bootstrap-html-admin-template/" target="_blank"
             class="btn btn-danger btn-buy-now">Upgrade to Pro</a>
-    </div>
+    </div> -->
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->

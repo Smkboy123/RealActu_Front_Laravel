@@ -19,7 +19,7 @@
                                                         data-duration="1000ms">{{ $article->category->nom }}</span>
                                                     <h2><a href="latest_news.html" data-animation="fadeInUp"
                                                             data-delay=".4s" data-duration="1000ms">{{ $article->titre }}</a></h2>
-                                                    <p data-animation="fadeInUp" data-delay=".6s" data-duration="1000ms">{{ $article->auteur }}- {{ $article->created_at->translatedFormat('F d, Y') }}</p>
+                                                    <p data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">{{ $article->auteur }}- {{ $article->created_at->translatedFormat('F d, Y') }}</p>
                                                 </div>
                                             </div>
                                         </div>
