@@ -53,7 +53,7 @@
                                         <li><a href="index.html">Accueil</a></li>
                                         <li><a href="about.html">Politique</a></li>
                                         <li><a href="{{route('categorie.details')}}">Environnrment</a></li>
-                                        <li><a href="{{route('articles.details')}}">Sport</a></li>
+                                        {{-- <li><a href="{{route('articles.details')}}">Sport</a></li> --}}
                                         <li><a href="#">Technologie</a>
                                             <!-- <ul class="submenu">
                                                 <li><a href="blog.html">Blog</a></li>

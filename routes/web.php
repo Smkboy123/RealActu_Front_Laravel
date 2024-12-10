@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'welcome']);
 
 Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
-Route::get('/articles/details', [ArticleController::class, 'details'])->name('articles.details');
+Route::get('/articles/{id}/details', [ArticleController::class, 'details'])->name('articles.details');
 Route::get('/category/details', [CategorieController::class, 'details'])->name('categorie.details');
 
 

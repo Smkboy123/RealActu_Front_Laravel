@@ -72,8 +72,10 @@ class ArticleController extends Controller
         $categories = Category::all();
         return view('admin.articles.edit', compact('article','categories'));
     }
-    public function details(Article $article)
+    public function details($id)
     {
+        $article = Article::find($id);
+        // dd($article);
        return view("frontend.Article.show", compact("article"));
     }
 
